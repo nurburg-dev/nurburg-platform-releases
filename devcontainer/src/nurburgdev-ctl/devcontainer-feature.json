@@ -1,0 +1,22 @@
+{
+  "id": "nurburgdev-ctl",
+  "version": "1.0.0",
+  "name": "Nurburg Platform CTL",
+  "description": "Installs the nurburgdev-ctl tool for managing Nurburg Platform experiments and configurations",
+  "documentationURL": "https://github.com/nurburg-platform/nurburg-platform/tree/main/ctl",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "Version of nurburgdev-ctl to install. Use 'latest' for the most recent version or specify a version tag"
+    },
+    "apiUrl": {
+      "type": "string",
+      "default": "https://nurburg.dev",
+      "description": "Default Nurburg Platform API URL to use with the CTL"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}

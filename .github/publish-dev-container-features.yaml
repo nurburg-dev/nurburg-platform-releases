@@ -1,0 +1,34 @@
+  name: Publish DevContainer Features
+
+  on:
+    push:
+      branches: [ main ]
+      paths:
+        - 'devcontainer/**'
+
+  permissions:
+    contents: write
+    packages: write
+
+  jobs:
+    publish-feature:
+    name: Publish Dev Container Feature
+    needs: [create-release]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Publish features to GHCR
+        uses: devcontainers/action@v1
+        with:
+          publish-features: "true"
+          base-path-to-features: "./devcontainer/src"
+          generate-docs: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Show published features
+        run: |
+          echo "✓ Features published to ghcr.io/${{ github.repository_owner }}/devcontainer-features"
