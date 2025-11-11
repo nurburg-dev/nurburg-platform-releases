@@ -1,21 +1,17 @@
-  name: Publish DevContainer Features
+name: Publish DevContainer Features
 
-  on:
-    push:
-      branches: [ main ]
-      paths:
-        - 'devcontainer/**'
+on:
+  push:
+    branches: [ main ]
 
-  permissions:
-    contents: write
-    packages: write
+permissions:
+  contents: write
+  packages: write
 
-  jobs:
-    publish-feature:
+jobs:
+  publish-feature:
     name: Publish Dev Container Feature
-    needs: [create-release]
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
