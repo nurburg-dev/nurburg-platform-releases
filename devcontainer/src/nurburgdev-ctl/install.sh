@@ -22,7 +22,7 @@ esac
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 
 # GitHub repository
-REPO="nurburg-platform/nurburg-platform"
+REPO="nurburg-dev/nurburg-platform-releases"
 BINARY_NAME="nurburgdev-ctl-${OS}-${ARCH}"
 
 echo "Detected: ${OS}/${ARCH}"
