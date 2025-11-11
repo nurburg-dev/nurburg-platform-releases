@@ -1,15 +1,12 @@
 #!/bin/bash
 set -e
 
-# Import options from devcontainer-feature.json
-VERSION="${VERSION:-"latest"}"
-APIURL="${APIURL:-"https://nurburg.dev"}"
+VERSION="${VERSION:-"0.3.7"}"
 
 echo "======================================"
 echo "Installing Nurburg Platform CTL"
 echo "======================================"
 echo "Version: ${VERSION}"
-echo "API URL: ${APIURL}"
 echo ""
 
 # Detect architecture
@@ -47,29 +44,3 @@ curl -fsSL "${DOWNLOAD_URL}" -o /tmp/nurburgdev-ctl
 echo "Installing to /usr/local/bin..."
 install -m 755 /tmp/nurburgdev-ctl /usr/local/bin/nurburgdev-ctl
 rm /tmp/nurburgdev-ctl
-
-# Set up environment variables
-echo "Configuring environment..."
-cat >> /etc/bash.bashrc <<EOF
-
-# Nurburg Platform CTL configuration
-export NURBURG_API_URL="${APIURL}"
-EOF
-
-# Also set for zsh if it exists
-if [ -f /etc/zsh/zshrc ]; then
-    cat >> /etc/zsh/zshrc <<EOF
-
-# Nurburg Platform CTL configuration
-export NURBURG_API_URL="${APIURL}"
-EOF
-fi
-
-echo ""
-echo "======================================"
-echo "✓ nurburgdev-ctl installed successfully"
-echo "======================================"
-echo ""
-nurburgdev-ctl --help
-echo ""
-echo "Default API URL: ${APIURL}"

@@ -1,6 +1,6 @@
 {
   "id": "nurburgdev-ctl",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "Nurburg Platform CTL",
   "description": "Installs the nurburgdev-ctl tool for managing Nurburg Platform experiments and configurations",
   "documentationURL": "https://github.com/nurburg-platform/nurburg-platform/tree/main/ctl",
